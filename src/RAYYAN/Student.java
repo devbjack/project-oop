@@ -1,3 +1,4 @@
+package RAYYAN;
 public class Student {
     private int studentId, classId, section, busId;
     private String studentName;

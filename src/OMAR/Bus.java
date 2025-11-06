@@ -1,10 +1,9 @@
-package OMAR;
+
 import java.util.ArrayList;
 
 public class Bus {
     private int busId, driverId, busNumber, capacity;
     private ArrayList<Object> areaList = new ArrayList<>();
-    private String studentName;
     
     public Bus(){
 

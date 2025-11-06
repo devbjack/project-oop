@@ -1,4 +1,4 @@
-package OMAR;
+
 public class LabEquipments {
     private int equipmentCount;
     private String equipmentName;

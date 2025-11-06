@@ -1,3 +1,4 @@
+package RAYYAN;
 import java.util.ArrayList;
 
 public class NoticeBoard {
