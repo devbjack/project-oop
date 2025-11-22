@@ -40,4 +40,12 @@ public class Student {
     public int getBusId(){
         return busId;
     }
+
+    //methods
+    public String studentDetails(){
+        return String.format("Student ID:   %d\nName:       %s\nClass ID:   %d\nSection:    %d\n", studentId, studentName, classId, section);
+    }
+    public void payFees(){
+        
+    }
 }

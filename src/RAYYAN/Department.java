@@ -40,4 +40,8 @@ public class Department {
         }
         return memberList;
     }
+
+    public void departmentDetails(){
+        
+    }
 }

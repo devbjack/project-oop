@@ -41,5 +41,12 @@ public class SchoolManagement {
         return mediumOfStudy;
     }
     
+    //methods
+    public boolean isOpen(){
+        return true;
+    }
+    public String schoolDetails(){
+        return String.format("School Name:  %s\nAddress:        %s\nContact:        %d\nMedium of Study: %s", schoolName, address, contactNumber, mediumOfStudy);
+    }
 
 }

@@ -27,4 +27,8 @@ public class NoticeBoard {
     public String getInchargeName(){
         return inchargeName;
     }
+    
+    public String display(){
+        return "dummy";
+    }
 }

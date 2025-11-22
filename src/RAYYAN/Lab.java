@@ -34,4 +34,11 @@ public class Lab {
     public String getLabName(){
         return labName;
     }
+
+    public String labDetails(){
+        return String.format("Lab ID:       %d\nName:       %s\nIn-Charge:  %s", labId, labName, "dummy");
+    }
+    public boolean isOccupied(){
+        return true;
+    }
 }
