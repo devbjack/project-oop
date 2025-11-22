@@ -1,3 +1,4 @@
+package RAYYAN;
 public class Employee {
     private int labId, salary, departmentId;
     private String employeeName;

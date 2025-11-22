@@ -1,6 +1,3 @@
-package OMAR;
-import java.util.ArrayList;
-
 public class Auditorium {
     private int totalSeats, seatsOccupied, eventDate, eventTime;
     private String eventName;

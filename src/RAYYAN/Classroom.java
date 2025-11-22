@@ -1,3 +1,4 @@
+package RAYYAN;
 public class Classroom {
     private int classId, teacherId, studentCount, equipmentId;
     private String className;

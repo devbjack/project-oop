@@ -1,3 +1,4 @@
+package RAYYAN;
 public class Lab {
     private int labId, inchargeId, equipmentId;
     private String labName;
