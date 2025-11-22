@@ -1,4 +1,4 @@
-
+package OMAR;
 public class Equipments {
     private int equipmentId, cost;
 

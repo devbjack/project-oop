@@ -1,4 +1,4 @@
-
+package OMAR;
 
 public class ClassEquipments {
     private int classId, benchCount, fanCount, lightCount;

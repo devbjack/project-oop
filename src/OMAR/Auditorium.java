@@ -1,3 +1,4 @@
+package OMAR;
 public class Auditorium {
     private int totalSeats, seatsOccupied, eventDate, eventTime;
     private String eventName;
