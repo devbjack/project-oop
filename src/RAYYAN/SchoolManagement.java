@@ -7,6 +7,7 @@ public class SchoolManagement {
     private int contactNumber;
     private Relations relations;
     private ArrayList<Classroom> classList;
+    private ArrayList<Employee> employeeList;
 
     public SchoolManagement(){
 
@@ -17,6 +18,7 @@ public class SchoolManagement {
         this.contactNumber = contactNumber;
         this.mediumOfStudy = mediumOfStudy;
         classList = new ArrayList<>();
+        employeeList = new ArrayList<>();
     }
     
     // setter
@@ -35,6 +37,9 @@ public class SchoolManagement {
     public void addClassroom(Classroom c){
         this.classList.add(c);
     }
+    public void addEmployee(Employee e){
+        this.employeeList.add(e);
+    }
     
     
     // getter
@@ -52,6 +57,9 @@ public class SchoolManagement {
     }
     public Object[] getClassroom(){
         return classList.toArray();
+    }
+    public Object[] getEmployee(){
+        return employeeList.toArray();
     }
     
     //methods

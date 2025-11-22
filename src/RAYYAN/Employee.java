@@ -3,8 +3,11 @@ public class Employee {
     private int employeeId, salary, departmentId;
     private String employeeName;
 
-    public Employee(){
-
+    public Employee(int employeeId, String employeeName, int salary, int departmentId){
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
+        this.salary = salary;
+        this.departmentId = departmentId;
     }
 
     //setter
