@@ -1,10 +1,9 @@
-package RAYYAN;
 import java.util.ArrayList;
 
 public class Department {
     private int departmentId;
     private String departmentName, inchargeName;
-    private ArrayList<Employee> memberList = new ArrayList<>();
+    private ArrayList<Object> memberList = new ArrayList<>();
 
     public Department(){
 
@@ -20,8 +19,8 @@ public class Department {
     public void setInchargeName(String inchargeName){
         this.inchargeName = inchargeName;
     }
-    public void setMemberList(Employee e){
-        memberList.add(e);
+    public void setMemberList(Object o){
+        memberList.add(o);
     }
 
     // getter
@@ -40,9 +39,7 @@ public class Department {
         }
         return memberList;
     }
-
-    // methods
-    public void departmentDetails(){
-        
+    public String departmentDetails(){
+        return String.format("Department ID: %d\nName:      %s\nIn-Charge:      %s\n", departmentId, departmentName, inchargeName);
     }
 }

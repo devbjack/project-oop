@@ -23,6 +23,9 @@ public class Main {
 
         // init
         sm.initialize(nb, staffs, classes);
+        
+        System.out.println(sm.schoolDetails());
+        sm.runSchool();
 
 
         

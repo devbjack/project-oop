@@ -1,4 +1,3 @@
-package RAYYAN;
 public class Lab {
     private int labId, inchargeId, equipmentId;
     private String labName;
@@ -34,11 +33,14 @@ public class Lab {
     public String getLabName(){
         return labName;
     }
-
+    //methods
     public String labDetails(){
-        return String.format("Lab ID:       %d\nName:       %s\nIn-Charge:  ", labId, labName);
+        return String.format("Lab ID:       %d\nName:      %s\nIn-Charge:       %s\nEquipment ID:   %d", labId, labName, "dummy", equipmentId);
     }
     public boolean isOccupied(){
         return true;
+    }
+    public void payFine(){
+        
     }
 }
