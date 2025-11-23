@@ -2,7 +2,7 @@ package RAYYAN;
 import java.util.ArrayList;
 
 public class NoticeBoard {
-    private ArrayList<Object> newsList = new ArrayList<>();
+    private ArrayList<String> newsList = new ArrayList<>();
     private String inchargeName;
 
     public NoticeBoard(){
@@ -18,21 +18,26 @@ public class NoticeBoard {
     }
 
     //setter
-    public void setNewsList(Object o){
-        newsList.add(o);
+    public void setNewsList(String s){
+        newsList.add(s);
     }
     public void setInchargeName(String inchargeName){
         this.inchargeName = inchargeName;
     }
 
     //getter
-    public Object getNewsList(){
-        for (Object object : newsList) {
-            return object;
+    public String getNewsList(){
+        String s = "";
+        for (int i = 0; i < newsList.size(); i++) {
+            s += i + ". " + newsList.get(i) + "\n";
         }
-        return newsList;
+        return s;
     }
     public String getInchargeName(){
         return inchargeName;
+    }
+    
+    public String display(){
+        return "dummy";
     }
 }

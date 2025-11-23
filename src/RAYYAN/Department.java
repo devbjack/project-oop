@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Department {
     private int departmentId;
     private String departmentName, inchargeName;
-    private ArrayList<Object> memberList = new ArrayList<>();
+    private ArrayList<Employee> memberList = new ArrayList<>();
 
     public Department(){
 
@@ -20,8 +20,8 @@ public class Department {
     public void setInchargeName(String inchargeName){
         this.inchargeName = inchargeName;
     }
-    public void setMemberList(Object o){
-        memberList.add(o);
+    public void setMemberList(Employee e){
+        memberList.add(e);
     }
 
     // getter
@@ -39,5 +39,10 @@ public class Department {
             return object;
         }
         return memberList;
+    }
+
+    // methods
+    public void departmentDetails(){
+        
     }
 }

@@ -49,4 +49,9 @@ public class Classroom {
     public int getEquipmentId(){
         return equipmentId;
     }
+
+    //methods
+    public String classDetails(){
+        return String.format("Class ID:     %d\n Name:      %s\nTeacher:        %s\nStudent Count: %d", classId, className, "dummy", studentCount);
+    }
 }
