@@ -17,9 +17,8 @@ public class SchoolManagement {
         return false;
     }
 
-    void schoolDetails(){
-        
-       
+    public String schoolDetails(){
+        return null;
     }
     
     // setter

@@ -5,8 +5,18 @@ public class Bus {
     private int busId, driverId, busNumber, capacity;
     private ArrayList<Object> areaList = new ArrayList<>();
     
-    public Bus(){
+    public Bus(int busId, int driverId, int busNumber, int capacity){
+        this.busId = busId;
+        this.driverId = driverId;
+        this.busNumber = busNumber;
+        this.capacity = capacity;
+    }
 
+    public String busDetails(){
+        return null;
+    }
+    public String showSeats(){
+        return null;
     }
     // setter
     public void setBusId(int busId){
