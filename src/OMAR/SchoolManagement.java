@@ -1,4 +1,4 @@
-package RAYYAN;
+package OMAR;
 public class SchoolManagement {
     private String schoolName, address, mediumOfStudy;
     private int contactNumber;
@@ -11,6 +11,15 @@ public class SchoolManagement {
         this.address = address;
         this.contactNumber = contactNumber;
         this.mediumOfStudy = mediumOfStudy;
+    }
+
+    boolean isOpen(){
+        return false;
+    }
+
+    void schoolDetails(){
+        
+       
     }
     
     // setter

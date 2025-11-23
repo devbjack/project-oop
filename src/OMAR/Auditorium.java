@@ -1,17 +1,26 @@
 package OMAR;
-public class Auditorium {
+
+public class Auditorium extends SchoolManagement {
     private int totalSeats, seatsOccupied, eventDate, eventTime;
     private String eventName;
-    
-    public Auditorium(){
 
+    public Auditorium(int totalSeats){
+        this.totalSeats = totalSeats;
     }
+
+    void bookAuditorium(){}
+    void eventDetails(){}
+    void displaySeats(){}
+    
     // setter
     public void setTotalSeats(int totalSeats){
         this.totalSeats = totalSeats;
     }
     public void setSeatsOccupied(int seatsOccupied){
         this.seatsOccupied = seatsOccupied;
+    }
+    public void setEventName(String eventName){
+        this.eventName = eventName;
     }
     public void setEventDate(int eventDate){
         this.eventDate = eventDate;
@@ -20,9 +29,6 @@ public class Auditorium {
         this.eventTime = eventTime;
     }
 
-    public void setEventName(String eventName){
-        this.eventName = eventName;
-    }
 
     // getter
     public int getTotalSeats(){
@@ -31,13 +37,13 @@ public class Auditorium {
     public int getSeatsOccupied(){
         return  this.seatsOccupied;
     }
+    public String getEventName(){
+        return this.eventName;
+    }
     public int getEventDate(){
         return  this.eventDate;
     }
     public int getEventTime(){
         return  this.eventTime;
-    }
-    public String getEventName(){
-        return this.eventName;
     }
 }
