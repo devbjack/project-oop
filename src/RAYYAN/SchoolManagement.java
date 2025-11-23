@@ -6,8 +6,6 @@ public class SchoolManagement {
     private String schoolName, address, mediumOfStudy;
     private int contactNumber;
     private Relations relations;
-    private ArrayList<Classroom> classList;
-    private ArrayList<Employee> employeeList;
 
     public SchoolManagement(){
 
@@ -17,9 +15,6 @@ public class SchoolManagement {
         this.address = address;
         this.contactNumber = contactNumber;
         this.mediumOfStudy = mediumOfStudy;
-        classList = new ArrayList<>();
-        employeeList = new ArrayList<>();
-    }
     
     // setter
     public void setSchoolName(String schoolName){
@@ -33,12 +28,6 @@ public class SchoolManagement {
     }
     public void setMediumOfStudy(String mediumOfStudy){
         this.mediumOfStudy = mediumOfStudy;
-    }
-    public void addClassroom(Classroom c){
-        this.classList.add(c);
-    }
-    public void addEmployee(Employee e){
-        this.employeeList.add(e);
     }
     
     
@@ -55,12 +44,6 @@ public class SchoolManagement {
     public String getMediumOfStudy(){
         return mediumOfStudy;
     }
-    public Object[] getClassroom(){
-        return classList.toArray();
-    }
-    public Object[] getEmployee(){
-        return employeeList.toArray();
-    }
     
     //methods
     public boolean isOpen(){
@@ -68,6 +51,9 @@ public class SchoolManagement {
     }
     public String schoolDetails(){
         return String.format("School Name:  %s\nAddress:        %s\nContact:        %d\nMedium of Study: %s", schoolName, address, contactNumber, mediumOfStudy);
+    }
+    public void initialize(/*Auditorium auditorium, Playground playground, */NoticeBoard noticeBoard, Employee[] employees, Classroom[] classes/* Lab[] labs*/){
+        
     }
 
     // relation class
