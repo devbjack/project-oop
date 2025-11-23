@@ -1,9 +1,12 @@
-
+package OMAR;
 public class LabEquipments {
     private int equipmentCount;
     private String equipmentName;
     
-    public LabEquipments(){
+    public LabEquipments(String equipmentName, int equipmentCount){
+        this.equipmentName = equipmentName;
+        this.equipmentCount = equipmentCount;
+
 
     }
     // setter

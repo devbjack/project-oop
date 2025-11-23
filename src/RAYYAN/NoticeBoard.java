@@ -9,6 +9,14 @@ public class NoticeBoard {
 
     }
 
+    public String display(){
+        return null;
+    }
+    
+    public void addContent(){
+
+    }
+
     //setter
     public void setNewsList(Object o){
         newsList.add(o);
