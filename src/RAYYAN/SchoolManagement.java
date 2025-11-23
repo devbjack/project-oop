@@ -1,6 +1,7 @@
 package RAYYAN;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class SchoolManagement {
     private String schoolName, address, mediumOfStudy;
@@ -9,7 +10,10 @@ public class SchoolManagement {
     private NoticeBoard noticeBoard;
     private Employee[] employees;
     private Classroom[] classes;
+    private ArrayList<Student> students;
     private boolean isOpen = false;
+    static Scanner sc = new Scanner(System.in);
+    final static String twolines = "================================================";
 
     public SchoolManagement(){
 
@@ -61,6 +65,9 @@ public class SchoolManagement {
         this.noticeBoard = noticeBoard;
         this.employees = employees;
         this.classes = classes;
+        students = new ArrayList<>();
+        relations = new Relations();
+        
     }
 
     // relation class
@@ -94,8 +101,8 @@ public class SchoolManagement {
             System.out.println("[F] Auditorium");
             System.out.println("[G] School Details");
             System.out.println("[H] Exit");
-            String input = "h";
-            switch (input.toUpperCase()) {
+            String input1 = "h";
+            switch (input1.toUpperCase()) {
                 case "A":
                     System.out.println("[A] Bus");
                     System.out.println("\t1. Add Bus");
@@ -104,18 +111,148 @@ public class SchoolManagement {
                     System.out.println("\t4. Go Back");
 
                 case "B":
-                    System.out.println("[B] Student");
-                    System.out.println("\t1. Add Student");
-                    System.out.println("\t2. Show Student Details");
-                    System.out.println("\t3. Pay Fee");
-                    System.out.println("\t4. Go Back");
+                    int input2 = 0;
+                    while(input2!=4){
+                        System.out.println("[B] Student");
+                        System.out.println("\t1. Add Student");
+                        System.out.println("\t2. Show Student Details");
+                        System.out.println("\t3. Pay Fee");
+                        System.out.println("\t4. Go Back");
+                        input2 = sc.nextInt();
+
+                        if (input2==1) {
+                            System.out.print("Student ID: ");
+                            int studentId = sc.nextInt();
+                            System.out.print("\nName: ");
+                            String name = sc.nextLine();
+                            System.out.print("Class ID: ");
+                            int classId = sc.nextInt();
+                            System.out.print("\nSection: ");
+                            int section = sc.nextInt();
+                            System.out.print("\nBus ID: ");
+                            int busId = sc.nextInt();
+                            students.add(new Student(studentId, name, classId, section, busId));
+                        }
+                        else if(input2==2){
+                            System.out.println("List of students:");
+                            for (int i = 0; i < students.size(); i++) {
+                                System.out.println((i+1) + ". " + students.get(i).getStudentName());
+                            }
+                            System.out.println(students.size() + ". Show All");
+                            System.out.println("Choose which student you want to see the details");
+                            int input3 = sc.nextInt();
+                            if (input3 == students.size()){
+                                for (Student std : students) {
+                                    System.out.println(twolines);
+                                    System.out.println(std.studentDetails());
+                                }
+                            }
+                            else{
+                                System.out.println(students.get(input3-1).studentDetails());
+                            }
+                        }
+                        else if(input2==3){
+                            // pay fee
+                        }
+                    }
+                    break;
+                    
 
                 case "C":
-                    System.out.println("[C] Employee");
-                    System.out.println("\t1. Teacher");
-                    System.out.println("\t2. Support Staff");
-                    System.out.println("\t3. Go Back");
-
+                    input2 = 0;
+                    while (input2 != 3) {
+                        System.out.println("[C] Employee");
+                        System.out.println("\t1. Teacher");
+                        System.out.println("\t2. Support Staff");
+                        System.out.println("\t3. Go Back");
+                        
+                        if (input2==1) {
+                            String input3 = "";
+                            while(input3.equalsIgnoreCase("c")){
+                                System.out.println("1. Teacher");
+                                System.out.println("\ta. Show Teacher Details");
+                                System.out.println("\tb. Receive Salary");
+                                System.out.println("\tc. Go Back");
+                                input3 = sc.next();
+                                if(input3.equalsIgnoreCase("a")){
+                                    System.out.println("List of Teacher:");
+                                    int numbering = 1;
+                                    for (int i = 0; i < employees.length; i++) {
+                                        if(employees[i] instanceof Teacher){
+                                            System.out.println(numbering++ + ". " + employees[i].getEmployeeName());
+                                        }
+                                    }
+                                    System.out.println(numbering + ". Show All");
+                                    System.out.println("Choose which teacher you want to see the details");
+                                    int input4 = sc.nextInt();
+                                    if (input4 == numbering){
+                                        numbering = 1;
+                                        for (int i = 0; i < employees.length; i++) {
+                                            if(employees[i] instanceof Teacher){
+                                                System.out.println(twolines);
+                                                System.out.println(numbering++ + ". " + employees[i].employeeDetails());
+                                                // need to map employee with department
+                                            }
+                                        } 
+                                    }
+                                    else{
+                                        try{
+                                            System.out.println(employees[input4]);
+                                        }catch (ArrayIndexOutOfBoundsException e){
+                                            System.out.println("Teacher not found");
+                                        }
+                                    }
+                                }
+                                else if(input3.equalsIgnoreCase("b")){
+                                    // receive salary
+                                }
+                            }
+                        }
+                        else if(input2==2){
+                            String input3 = "";
+                            while(input3.equalsIgnoreCase("c")){
+                                System.out.println("1. Support Staff");
+                                System.out.println("\ta. Show Support Staff Details");
+                                System.out.println("\tb. Receive Salary");
+                                System.out.println("\tc. Go Back");
+                                input3 = sc.next();
+                                if(input3.equalsIgnoreCase("a")){
+                                    System.out.println("List of Support Staff:");
+                                    int numbering = 1;
+                                    for (int i = 0; i < employees.length; i++) {
+                                        if(employees[i] instanceof SupportStaff){
+                                            System.out.println(numbering++ + ". " + employees[i].getEmployeeName());
+                                        }
+                                    }
+                                    System.out.println(numbering + ". Show All");
+                                    System.out.println("Choose which support staff you want to see the details");
+                                    int input4 = sc.nextInt();
+                                    if (input4 == numbering){
+                                        numbering = 1;
+                                        for (int i = 0; i < employees.length; i++) {
+                                            if(employees[i] instanceof SupportStaff){
+                                                System.out.println(twolines);
+                                                System.out.println(numbering++ + ". " + employees[i].employeeDetails());
+                                                // need to map employee with department
+                                            }
+                                        } 
+                                    }
+                                    else{
+                                        try{
+                                            System.out.println(employees[input4]);
+                                        }catch (ArrayIndexOutOfBoundsException e){
+                                            System.out.println("Support Staff not found");
+                                        }
+                                    }
+                                }
+                                else if(input3.equalsIgnoreCase("b")){
+                                    // receive salary
+                                }
+                            }
+                        }
+                    }
+                    break;
+                    
                 case "D":
                     System.out.println("[D] Class");
                     System.out.println("\t1. Add Students");
