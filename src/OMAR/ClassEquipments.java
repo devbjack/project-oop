@@ -1,10 +1,12 @@
-
+package OMAR;
 
 public class ClassEquipments {
     private int classId, benchCount, fanCount, lightCount;
     
-    public ClassEquipments(){
-
+    public ClassEquipments(int benchCount, int fanCount, int lightCount){
+        this.benchCount = benchCount;
+        this.fanCount = fanCount;
+        this.lightCount = lightCount;
     }
     // setter
     public void setClassId(int classId){

@@ -1,8 +1,12 @@
+<<<<<<< HEAD:src/RAYYAN/SchoolManagement.java
 package RAYYAN;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+=======
+package OMAR;
+>>>>>>> main:src/OMAR/SchoolManagement.java
 public class SchoolManagement {
     private String schoolName, address, mediumOfStudy;
     private int contactNumber;
@@ -23,6 +27,14 @@ public class SchoolManagement {
         this.address = address;
         this.contactNumber = contactNumber;
         this.mediumOfStudy = mediumOfStudy;
+    }
+
+    boolean isOpen(){
+        return false;
+    }
+
+    public String schoolDetails(){
+        return null;
     }
     
     // setter

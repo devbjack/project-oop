@@ -3,7 +3,8 @@ public class Lab {
     private int labId, inchargeId, equipmentId;
     private String labName;
 
-    public Lab(){
+    public Lab(String labName){
+        this.labName = labName;
 
     }
 

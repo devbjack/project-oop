@@ -3,7 +3,9 @@ public class Classroom {
     private int classId, teacherId, studentCount, equipmentId;
     private String className;
 
-    public Classroom(){
+    public Classroom(int studentCount, String className){
+        this.studentCount = studentCount;
+        this.className = className;
 
     }
     public Classroom(int classId, String className, int teacherId, int studentCount, int equipmentId){
