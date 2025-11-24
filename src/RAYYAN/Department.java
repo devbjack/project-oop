@@ -6,10 +6,9 @@ public class Department {
     private String departmentName, inchargeName;
     private ArrayList<Employee> memberList = new ArrayList<>();
 
-    public Department(int departmentId, String departmentName, String inchargeName){
+    public Department(int departmentId, String departmentName){
         this.departmentId = departmentId;
         this.departmentName = departmentName;
-        this.inchargeName = inchargeName;
     }
 
     // setter
