@@ -9,14 +9,6 @@ public class NoticeBoard {
 
     }
 
-    public String display(){
-        return null;
-    }
-    
-    public void addContent(){
-
-    }
-
     //setter
     public void setNewsList(String s){
         newsList.add(s);

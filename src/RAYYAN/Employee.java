@@ -3,34 +3,12 @@ public class Employee {
     private int employeeId, salary, departmentId;
     private String employeeName;
 
-<<<<<<< HEAD
     public Employee(int employeeId, String employeeName, int salary, int departmentId){
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.salary = salary;
         this.departmentId = departmentId;
-=======
-    public Employee(String employeeName, int salary, int departmentId){
-        this.employeeName = employeeName;
-        this.salary = salary;
-        this.departmentId = departmentId;
     }
-    public Employee(int departmentId){
-        this.departmentId = departmentId;
-    }
-
-
-    public String employeeDetails(){
-        return null;
-    }
-    public boolean checkIn(){
-        return  false;
-    }
-    public void receiveSalary(){
-
->>>>>>> main
-    }
-
 
     //setter
     public void setEmployeeId(int employeeId){

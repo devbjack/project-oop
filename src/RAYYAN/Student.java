@@ -3,24 +3,14 @@ public class Student {
     private int studentId, classId, section, busId;
     private String studentName;
     
-    public Student(String studentName, int classId, int section, int busId){
+    public Student(int studentId, String studentName, int classId, int section, int busId){
+        this.studentId = studentId;
         this.studentName = studentName; 
         this.classId = classId; 
         this.section = section; 
         this.busId = busId; 
     }
 
-    public Student(int studentId){
-        this.studentId = studentId; 
-    }
-    
-    public String studentDetails(){
-        return null;
-    }
-
-    public String payFees(){
-        return null;
-    }
     // setter
     public void setStudentId(int studentId){
         this.studentId = studentId;
