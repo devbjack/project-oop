@@ -18,18 +18,18 @@ public class NoticeBoard {
     }
 
     //getter
-    public String getNewsList(){
-        String s = "";
-        for (int i = 0; i < newsList.size(); i++) {
-            s += i + ". " + newsList.get(i) + "\n";
-        }
-        return s;
+    public ArrayList<String> getNewsList(){
+        return newsList;
     }
     public String getInchargeName(){
         return inchargeName;
     }
     
     public String display(){
-        return "dummy";
+        String s = "";
+        for (int i = 0; i < newsList.size(); i++) {
+            s += i + ". " + newsList.get(i) + "\n";
+        }
+        return s;
     }
 }

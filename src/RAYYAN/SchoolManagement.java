@@ -81,7 +81,7 @@ public class SchoolManagement {
         initDeptMember();
     }
 
-    private void initClasses(Classroom[] classArr){
+    private void initClasses(Classroom[] classArr) {
         for (int i = 0; i < classArr.length; i++) {
             classes.put(classArr[i].getClassId(), classArr[i]);
         }
@@ -98,14 +98,14 @@ public class SchoolManagement {
         }
     }
 
-    private void initDeptMember(){
-            for(Teacher teacher : teachers.values()){
-                departments.get(teacher.getDepartmentId()).setMemberList(teacher);
-            }
-            for (Department department : departments.values()) {
-                department.setInchargeName(department.getMember(0).getEmployeeName());
-            }
-        
+    private void initDeptMember() {
+        for (Teacher teacher : teachers.values()) {
+            departments.get(teacher.getDepartmentId()).setMemberList(teacher);
+        }
+        for (Department department : departments.values()) {
+            department.setInchargeName(department.getMember(0).getEmployeeName());
+        }
+
     }
 
     private void getTeacherFromEmployee(Employee[] employees) {
@@ -157,10 +157,8 @@ public class SchoolManagement {
                     break;
 
                 case "E":
-                    System.out.println("[E] Notice Board");
-                    System.out.println("\t1. Display");
-                    System.out.println("\t2. Add Content");
-                    System.out.println("\t3. Go Back");
+                    runE();
+                    break;
 
                 case "F":
                     System.out.println("[F] Auditorium");
@@ -333,7 +331,7 @@ public class SchoolManagement {
             }
             int cID = sc.nextInt();
             Classroom classroom = classes.get(cID);
-            if(classroom == null){
+            if (classroom == null) {
                 System.out.println("Classroom not found!");
                 continue;
             }
@@ -343,30 +341,48 @@ public class SchoolManagement {
             System.out.println("\t2. Assign Teacher");
             System.out.println("\t3. Show Details");
             System.out.println("\t4. Go Back");
-            if(input1 == 1){
+            if (input1 == 1) {
                 System.out.print("Input Student ID you want to assign to the class: ");
                 int stdID = sc.nextInt();
-                while(students.get(stdID) == null){
+                while (students.get(stdID) == null) {
                     System.out.println("Student not Found!");
                     stdID = sc.nextInt();
                 }
                 students.get(stdID).setClassId(classroom.getClassId());
-            }
-            else if(input1 == 2){
+            } else if (input1 == 2) {
                 System.out.print("Input Teacher ID you want to assign to the class: ");
                 int tchID = sc.nextInt();
-                while(teachers.get(tchID) == null){
+                while (teachers.get(tchID) == null) {
                     System.out.println("Teacher not Found!");
                     tchID = sc.nextInt();
                 }
                 classroom.setTeacherId(tchID);
-            }
-            else if(input1 == 3){
+            } else if (input1 == 3) {
                 System.out.println(classroom.classDetails());
-            }
-            else{
+            } else {
                 System.out.println("Option not found!");
             }
         }
+    }
+
+    private void runE() {
+        int input1 = 0;
+        while (input1 != 3) {
+            System.out.println("[E] Notice Board");
+            System.out.println("\t1. Display");
+            System.out.println("\t2. Add Content");
+            System.out.println("\t3. Go Back");
+            input1 = sc.nextInt();
+            if(input1 == 1){
+                noticeBoard.display();
+            }else if(input1 == 2){
+                System.out.println("Input the news you want to add:");
+                String news = sc.nextLine();
+                noticeBoard.getNewsList().add(news);
+            }else {
+                System.out.println("Option not found!");
+            }
+        }
+
     }
 }
