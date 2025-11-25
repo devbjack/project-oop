@@ -171,9 +171,11 @@ public class SchoolManagement {
                     System.out.println("[G] School Details");
                     System.out.println(schoolDetails());
                 case "H":
+                    System.out.println("Thank you.");
                     return;
 
                 default:
+                    System.out.println("Option not found!");
                     break;
             }
         }
@@ -353,7 +355,7 @@ public class SchoolManagement {
                 System.out.print("Input Teacher ID you want to assign to the class: ");
                 int tchID = sc.nextInt();
                 while (teachers.get(tchID) == null) {
-                    System.out.println("Teacher not Found!");
+                    System.out.println("Teacher not found!");
                     tchID = sc.nextInt();
                 }
                 classroom.setTeacherId(tchID);
@@ -383,6 +385,5 @@ public class SchoolManagement {
                 System.out.println("Option not found!");
             }
         }
-
     }
 }
