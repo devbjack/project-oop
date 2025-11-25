@@ -2,22 +2,22 @@ package RAYYAN;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class SchoolManagement {
     private String schoolName, address, mediumOfStudy;
     private int contactNumber;
-    private Relations relations;
     private NoticeBoard noticeBoard;
     private boolean isOpen = false;
     static Scanner sc = new Scanner(System.in);
     final static String twolines = "================================================";
 
-    // arrays
-    private Teacher[] teachers;
-    private SupportStaff[] supportStaffs;
+    // data storage
+    private HashMap<Integer, Teacher> teachers;
+    private HashMap<Integer, SupportStaff> supportStaffs;
     private Classroom[] classes;
-    private Department[] departments;
+    private HashMap<Integer, Department> departments;
     private ArrayList<Student> students;
 
     public SchoolManagement(String schoolName, String address, int contactNumber, String mediumOfStudy) {
@@ -75,73 +75,49 @@ public class SchoolManagement {
             Employee[] employees, Classroom[] classes/* Lab[] labs */) {
         this.noticeBoard = noticeBoard;
         this.classes = classes;
-        teachers = getTeacherFromEmployee(employees);
-        supportStaffs = getSupportStaffFromEmployee(employees);
+        getTeacherFromEmployee(employees);
+        getSupportStaffFromEmployee(employees);
         students = new ArrayList<>();
         initDept();
         initInChargeDept();
     }
 
     private void initDept() {
-        departments = new Department[] {
+        Department[] departments = new Department[] {
                 new Department(801, "Science"),
                 new Department(802, "English"),
                 new Department(803, "Art")
         };
+        for (int i = 0; i < departments.length; i++) {
+            this.departments.put(departments[i].getDepartmentId(), departments[i]);
+        }
     }
     private void initInChargeDept(){
-        for (int i = 0; i < departments.length; i++) {
-            for (int j = 0; j < teachers.length; j++) {
-                if (departments[i].getDepartmentId() == teachers[j].getDepartmentId()) {
-                    if(departments[i].getInchargeName().isEmpty()){
-                        departments[i].setInchargeName(teachers[i].getEmployeeName());
+        for (Map.Entry<Integer, Department> department : departments.entrySet()) {
+            for (Map.Entry<Integer, Teacher> teacher : teachers.entrySet()) {
+                if(teacher.getValue().getDepartmentId() == department.getValue().getDepartmentId()){
+                    if(department.getValue().getInchargeName().isEmpty()){
+                        department.getValue().setInchargeName(teacher.getValue().getEmployeeName());
                     }
                 }
             }
         }
     }
 
-    // relation class
-    class Relations {
-        private HashMap<Integer, Employee> employeeMap;
-
-        Relations() {
-            employeeMap = new HashMap<>();
-        }
-
-        public void addEmployee(int id, Employee e) {
-            employeeMap.put(id, e);
-        }
-
-        public String getEmployee(int id) {
-            Employee e = employeeMap.get(id);
-            if (e == null) {
-                return "404: Not Found!";
+    private void getTeacherFromEmployee(Employee[] employees) {
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] instanceof Teacher) {
+                teachers.put(employees[i].getEmployeeId(), new Teacher(employees[i]));
             }
-            return e.getEmployeeName() + "\n";
         }
     }
 
-    private Teacher[] getTeacherFromEmployee(Employee[] employees) {
-        ArrayList<Employee> teachersList = new ArrayList<>();
+    private void getSupportStaffFromEmployee(Employee[] employees) {
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] instanceof Teacher) {
-                teachersList.add(employees[i]);
+            if (employees[i] instanceof SupportStaff) {
+                supportStaffs.put(employees[i].getEmployeeId(), new SupportStaff(employees[i]));
             }
         }
-        Teacher[] teachers = teachersList.toArray(new Teacher[teachersList.size()]);
-        return teachers;
-    }
-
-    private SupportStaff[] getSupportStaffFromEmployee(Employee[] employees) {
-        ArrayList<Employee> supportStaffList = new ArrayList<>();
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] instanceof Teacher) {
-                supportStaffList.add(employees[i]);
-            }
-        }
-        SupportStaff[] supportStaffs = supportStaffList.toArray(new SupportStaff[supportStaffList.size()]);
-        return supportStaffs;
     }
 
     public void runSchool() {
@@ -267,10 +243,13 @@ public class SchoolManagement {
                     if (input3.equalsIgnoreCase("a")) {
                         System.out.println("List of Teacher:");
                         int numbering = 1;
-                        for (int i = 0; i < teachers.length; i++) {
+                        for (int i = 0; i < teachers.size(); i++) {
 
                             System.out.println(numbering++ + ". " + teachers[i].getEmployeeName());
 
+                        }
+                        for (Teac\ classroom : classes) {
+                            
                         }
                         System.out.println(numbering + ". Show All");
                         System.out.println("Choose which teacher you want to see the details");
