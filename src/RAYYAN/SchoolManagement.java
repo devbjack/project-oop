@@ -78,7 +78,7 @@ public class SchoolManagement {
         getSupportStaffFromEmployee(employees);
         students = new HashMap<>();
         initDept();
-        initInChargeDept();
+        initDeptMember();
     }
 
     private void initClasses(Classroom[] classArr){
@@ -98,16 +98,14 @@ public class SchoolManagement {
         }
     }
 
-    private void initInChargeDept() {
-        for (Department department : departments.values()) {
-            for (Teacher teacher : teachers.values()) {
-                if (teacher.getDepartmentId() == department.getDepartmentId()) {
-                    if (department.getInchargeName().isEmpty()) {
-                        department.setInchargeName(teacher.getEmployeeName());
-                    }
-                }
+    private void initDeptMember(){
+            for(Teacher teacher : teachers.values()){
+                departments.get(teacher.getDepartmentId()).setMemberList(teacher);
             }
-        }
+            for (Department department : departments.values()) {
+                department.setInchargeName(department.getMember(0).getEmployeeName());
+            }
+        
     }
 
     private void getTeacherFromEmployee(Employee[] employees) {
