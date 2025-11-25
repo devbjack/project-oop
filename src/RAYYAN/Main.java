@@ -15,7 +15,8 @@ public class Main {
         Employee[] staffs = {
             new Teacher(501, "Dudung", 100, 801),
             new Teacher(502, "Diding", 150, 802),
-            new SupportStaff(601, "Dadang", 10, 801)
+            new SupportStaff(601, "Dadang", 10, 801),
+            new Teacher(504, "Bahlil", 100, 803)
         };
         // Notice Boards
         NoticeBoard nb = new NoticeBoard();

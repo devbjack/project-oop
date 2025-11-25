@@ -73,10 +73,14 @@ public class SchoolManagement {
     public void initialize(/* Auditorium auditorium, Playground playground, */NoticeBoard noticeBoard,
             Employee[] employees, Classroom[] classes/* Lab[] labs */) {
         this.noticeBoard = noticeBoard;
+        this.classes = new HashMap<>();
+        this.teachers = new HashMap<>();
+        this.supportStaffs = new HashMap<>();
+        this.departments = new HashMap<>();
+        this.students = new HashMap<>();
         initClasses(classes);
         getTeacherFromEmployee(employees);
         getSupportStaffFromEmployee(employees);
-        students = new HashMap<>();
         initDept();
         initDeptMember();
     }
@@ -135,7 +139,7 @@ public class SchoolManagement {
             System.out.println("[F] Auditorium");
             System.out.println("[G] School Details");
             System.out.println("[H] Exit");
-            String input1 = "h";
+            String input1 = sc.nextLine();
             switch (input1.toUpperCase()) {
                 case "A":
                     System.out.println("[A] Bus");
@@ -143,7 +147,7 @@ public class SchoolManagement {
                     System.out.println("\t2. Show Bus Details");
                     System.out.println("\t3. Show Seats");
                     System.out.println("\t4. Go Back");
-
+                    break;
                 case "B":
                     runB();
                     break;
@@ -166,14 +170,15 @@ public class SchoolManagement {
                     System.out.println("\t2. Show Event Details");
                     System.out.println("\t3. Show Seats");
                     System.out.println("\t4. Go Back");
-
+                    break;
                 case "G":
                     System.out.println("[G] School Details");
                     System.out.println(schoolDetails());
+                    break;
                 case "H":
                     System.out.println("Thank you.");
-                    return;
-
+                    isOpen = false;
+                    break;
                 default:
                     System.out.println("Option not found!");
                     break;
@@ -189,7 +194,7 @@ public class SchoolManagement {
             System.out.println("\t2. Show Student Details");
             System.out.println("\t3. Pay Fee");
             System.out.println("\t4. Go Back");
-            input1 = sc.nextInt();
+            input1 = sc.nextInt();sc.nextLine();
 
             if (input1 == 1) {
                 System.out.print("Student ID: ");
@@ -221,6 +226,8 @@ public class SchoolManagement {
                 }
             } else if (input1 == 3) {
                 // pay fee
+            } else if (input1 == 4) {
+                // loop again
             } else {
                 System.out.println("Option not found!");
             }
@@ -237,7 +244,7 @@ public class SchoolManagement {
 
             if (input1 == 1) {
                 String input2 = "";
-                while (input2.equalsIgnoreCase("c")) {
+                while (!input2.equalsIgnoreCase("c")) {
                     System.out.println("1. Teacher");
                     System.out.println("\ta. Show Teacher Details");
                     System.out.println("\tb. Receive Salary");
@@ -271,6 +278,8 @@ public class SchoolManagement {
                         }
                     } else if (input2.equalsIgnoreCase("b")) {
                         // receive salary
+                    } else if (input2.equalsIgnoreCase("c")) {
+                        // loop again
                     } else {
                         System.out.println("Option not found!");
                     }
@@ -312,10 +321,14 @@ public class SchoolManagement {
                         }
                     } else if (input2.equalsIgnoreCase("b")) {
                         // receive salary
+                    } else if (input2.equalsIgnoreCase("c")) {
+                        // loop again
                     } else {
                         System.out.println("Option not found!");
                     }
                 }
+            } else if (input1 == 3) {
+                // loop again
             } else {
                 System.out.println("Option not found!");
             }
@@ -361,6 +374,8 @@ public class SchoolManagement {
                 classroom.setTeacherId(tchID);
             } else if (input1 == 3) {
                 System.out.println(classroom.classDetails());
+            } else if (input1 == 4) {
+                // loop again
             } else {
                 System.out.println("Option not found!");
             }
@@ -375,13 +390,15 @@ public class SchoolManagement {
             System.out.println("\t2. Add Content");
             System.out.println("\t3. Go Back");
             input1 = sc.nextInt();
-            if(input1 == 1){
+            if (input1 == 1) {
                 noticeBoard.display();
-            }else if(input1 == 2){
+            } else if (input1 == 2) {
                 System.out.println("Input the news you want to add:");
                 String news = sc.nextLine();
                 noticeBoard.getNewsList().add(news);
-            }else {
+            } else if (input1 == 3) {
+                // loop again
+            } else {
                 System.out.println("Option not found!");
             }
         }
