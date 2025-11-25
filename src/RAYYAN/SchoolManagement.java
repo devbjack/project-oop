@@ -14,11 +14,11 @@ public class SchoolManagement {
     final static String twolines = "================================================";
 
     // arrays
-    private Employee[] employees;
+    private Teacher[] teachers;
+    private SupportStaff[] supportStaffs;
     private Classroom[] classes;
     private Department[] departments;
     private ArrayList<Student> students;
-
 
     public SchoolManagement(String schoolName, String address, int contactNumber, String mediumOfStudy) {
         this.schoolName = schoolName;
@@ -74,21 +74,31 @@ public class SchoolManagement {
     public void initialize(/* Auditorium auditorium, Playground playground, */NoticeBoard noticeBoard,
             Employee[] employees, Classroom[] classes/* Lab[] labs */) {
         this.noticeBoard = noticeBoard;
-        this.employees = employees;
         this.classes = classes;
+        teachers = getTeacherFromEmployee(employees);
+        supportStaffs = getSupportStaffFromEmployee(employees);
         students = new ArrayList<>();
         initDept();
-        for (int i = 0; i < employees.length; i++) {
-            
-        }
-
+        initInChargeDept();
     }
-    private void initDept(){
-        departments = new Department[]{
-            new Department(801, "Science"),
-            new Department(802, "English"),
-            new Department(803, "Art")
+
+    private void initDept() {
+        departments = new Department[] {
+                new Department(801, "Science"),
+                new Department(802, "English"),
+                new Department(803, "Art")
         };
+    }
+    private void initInChargeDept(){
+        for (int i = 0; i < departments.length; i++) {
+            for (int j = 0; j < teachers.length; j++) {
+                if (departments[i].getDepartmentId() == teachers[j].getDepartmentId()) {
+                    if(departments[i].getInchargeName().isEmpty()){
+                        departments[i].setInchargeName(teachers[i].getEmployeeName());
+                    }
+                }
+            }
+        }
     }
 
     // relation class
@@ -112,6 +122,27 @@ public class SchoolManagement {
         }
     }
 
+    private Teacher[] getTeacherFromEmployee(Employee[] employees) {
+        ArrayList<Employee> teachersList = new ArrayList<>();
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] instanceof Teacher) {
+                teachersList.add(employees[i]);
+            }
+        }
+        Teacher[] teachers = teachersList.toArray(new Teacher[teachersList.size()]);
+        return teachers;
+    }
+
+    private SupportStaff[] getSupportStaffFromEmployee(Employee[] employees) {
+        ArrayList<Employee> supportStaffList = new ArrayList<>();
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] instanceof Teacher) {
+                supportStaffList.add(employees[i]);
+            }
+        }
+        SupportStaff[] supportStaffs = supportStaffList.toArray(new SupportStaff[supportStaffList.size()]);
+        return supportStaffs;
+    }
 
     public void runSchool() {
         isOpen = true;
@@ -236,26 +267,25 @@ public class SchoolManagement {
                     if (input3.equalsIgnoreCase("a")) {
                         System.out.println("List of Teacher:");
                         int numbering = 1;
-                        for (int i = 0; i < employees.length; i++) {
-                            if (employees[i] instanceof Teacher) {
-                                System.out.println(numbering++ + ". " + employees[i].getEmployeeName());
-                            }
+                        for (int i = 0; i < teachers.length; i++) {
+
+                            System.out.println(numbering++ + ". " + teachers[i].getEmployeeName());
+
                         }
                         System.out.println(numbering + ". Show All");
                         System.out.println("Choose which teacher you want to see the details");
                         int input4 = sc.nextInt();
                         if (input4 == numbering) {
                             numbering = 1;
-                            for (int i = 0; i < employees.length; i++) {
-                                if (employees[i] instanceof Teacher) {
-                                    System.out.println(twolines);
-                                    System.out.println(numbering++ + ". " + employees[i].employeeDetails());
-                                    // need to map employee with department
-                                }
+                            for (int i = 0; i < teachers.length; i++) {
+                                System.out.println(twolines);
+                                System.out.println(numbering++ + ". " + teachers[i].employeeDetails());
+                                // need to map employee with department
+
                             }
                         } else {
                             try {
-                                System.out.println(employees[input4]);
+                                System.out.println(teachers[input4]);
                             } catch (ArrayIndexOutOfBoundsException e) {
                                 System.out.println("Teacher not found");
                             }
@@ -275,26 +305,26 @@ public class SchoolManagement {
                     if (input3.equalsIgnoreCase("a")) {
                         System.out.println("List of Support Staff:");
                         int numbering = 1;
-                        for (int i = 0; i < employees.length; i++) {
-                            if (employees[i] instanceof SupportStaff) {
-                                System.out.println(numbering++ + ". " + employees[i].getEmployeeName());
-                            }
+                        for (int i = 0; i < supportStaffs.length; i++) {
+
+                            System.out.println(numbering++ + ". " + supportStaffs[i].getEmployeeName());
+
                         }
                         System.out.println(numbering + ". Show All");
                         System.out.println("Choose which support staff you want to see the details");
                         int input4 = sc.nextInt();
                         if (input4 == numbering) {
                             numbering = 1;
-                            for (int i = 0; i < employees.length; i++) {
-                                if (employees[i] instanceof SupportStaff) {
-                                    System.out.println(twolines);
-                                    System.out.println(numbering++ + ". " + employees[i].employeeDetails());
-                                    // need to map employee with department
-                                }
+                            for (int i = 0; i < supportStaffs.length; i++) {
+
+                                System.out.println(twolines);
+                                System.out.println(numbering++ + ". " + supportStaffs[i].employeeDetails());
+                                // need to map employee with department
+
                             }
                         } else {
                             try {
-                                System.out.println(employees[input4]);
+                                System.out.println(supportStaffs[input4]);
                             } catch (ArrayIndexOutOfBoundsException e) {
                                 System.out.println("Support Staff not found");
                             }
