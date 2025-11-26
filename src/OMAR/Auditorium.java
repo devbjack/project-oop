@@ -1,13 +1,13 @@
 package OMAR;
 
-public class Auditorium extends SchoolManagement {
+public class Auditorium {
     private int eventDate, eventTime, seatsOccupied, totalSeats;
     private String eventName;
 
     public Auditorium(int totalSeats){
         this.totalSeats = totalSeats;
     }
-    
+
 
     public void bookAuditorium(String eventName, int eventDate, int eventTime, int seatsOccupied){
         this.eventName = eventName;
