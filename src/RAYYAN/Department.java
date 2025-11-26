@@ -4,10 +4,12 @@ import java.util.ArrayList;
 public class Department {
     private int departmentId;
     private String departmentName, inchargeName;
-    private ArrayList<Object> memberList = new ArrayList<>();
+    private ArrayList<Employee> memberList = new ArrayList<>();
 
-    public Department(){
-
+    public Department(int departmentId, String departmentName){
+        this.departmentId = departmentId;
+        this.departmentName = departmentName;
+        this.inchargeName = "";
     }
 
     // setter
@@ -20,8 +22,8 @@ public class Department {
     public void setInchargeName(String inchargeName){
         this.inchargeName = inchargeName;
     }
-    public void setMemberList(Object o){
-        memberList.add(o);
+    public void setMemberList(Employee e){
+        memberList.add(e);
     }
 
     // getter
@@ -34,10 +36,15 @@ public class Department {
     public String getInchargeName(){
         return inchargeName;
     }
-    public Object getMemberList(){
-        for (Object object : memberList) {
-            return object;
-        }
+    public ArrayList<Employee> getMemberList(){
         return memberList;
+    }
+    public Employee getMember(int i){
+        return memberList.get(i);
+    }
+
+    // methods
+    public void departmentDetails(){
+        
     }
 }

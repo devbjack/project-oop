@@ -9,6 +9,7 @@ public class LabEquipments {
 
 
     }
+    
     // setter
     public void setEquipmentCount(int equipmentCount){
         this.equipmentCount = equipmentCount;

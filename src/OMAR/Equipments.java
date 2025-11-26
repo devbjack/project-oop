@@ -11,6 +11,7 @@ public class Equipments {
     public void setCost(int cost){
         this.cost = cost;
     }
+    
 
     // getter
     public int getEquipmentId(){

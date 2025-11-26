@@ -1,32 +1,18 @@
 package RAYYAN;
 public class Employee {
-    private int labId, salary, departmentId;
+    private int employeeId, salary, departmentId;
     private String employeeName;
 
-    public Employee(String employeeName, int salary, int departmentId){
+    public Employee(int employeeId, String employeeName, int salary, int departmentId){
+        this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.salary = salary;
         this.departmentId = departmentId;
     }
-    public Employee(int departmentId){
-        this.departmentId = departmentId;
-    }
-
-
-    public String employeeDetails(){
-        return null;
-    }
-    public boolean checkIn(){
-        return  false;
-    }
-    public void receiveSalary(){
-
-    }
-
 
     //setter
-    public void setLabId(int labId){
-        this.labId = labId;
+    public void setEmployeeId(int employeeId){
+        this.employeeId = employeeId;
     }
     public void setSalary(int salary){
         this.salary = salary;
@@ -39,8 +25,8 @@ public class Employee {
     }
 
     //getter
-    public int getLabId(){
-        return labId;
+    public int getEmployeeId(){
+        return employeeId;
     }
     public int getSalary(){
         return salary;
@@ -52,4 +38,14 @@ public class Employee {
         return employeeName;
     }
     
+    //methods
+    public String employeeDetails(){
+        return String.format("Employee ID:   %d\nName:      %s\nDepartment: %s", employeeId, employeeName, "dummy");
+    }
+    public boolean checkIn(){
+        return true;
+    }
+    public void receiveSalary(){
+        
+    }
 }

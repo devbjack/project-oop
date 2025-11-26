@@ -11,6 +11,7 @@ public class Bus {
         this.busNumber = busNumber;
         this.capacity = capacity;
     }
+    
 
     public String busDetails(){
         return null;
