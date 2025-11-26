@@ -1,9 +1,8 @@
 package RAYYAN;
-<<<<<<< HEAD
+
 public class PrimaryStudent extends Student {
-=======
-public class PrimaryStudent{
->>>>>>> main
-    
+    PrimaryStudent(int studentId, String studentName, int classId, int section, int busId){
+        super(studentId, studentName, classId, section, busId);
+    }
 }
 

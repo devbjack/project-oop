@@ -6,8 +6,10 @@ public class Department {
     private String departmentName, inchargeName;
     private ArrayList<Employee> memberList = new ArrayList<>();
 
-    public Department(){
-
+    public Department(int departmentId, String departmentName){
+        this.departmentId = departmentId;
+        this.departmentName = departmentName;
+        this.inchargeName = "";
     }
     
 
@@ -35,11 +37,11 @@ public class Department {
     public String getInchargeName(){
         return inchargeName;
     }
-    public Object getMemberList(){
-        for (Object object : memberList) {
-            return object;
-        }
+    public ArrayList<Employee> getMemberList(){
         return memberList;
+    }
+    public Employee getMember(int i){
+        return memberList.get(i);
     }
 
     // methods
