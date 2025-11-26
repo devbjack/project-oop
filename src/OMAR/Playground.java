@@ -7,6 +7,7 @@ public class Playground {
     public Playground(){
 
     }
+    
     // setter
     public void setArea(int area){
         this.area = area;

@@ -7,6 +7,7 @@ public class Auditorium extends SchoolManagement {
     public Auditorium(int totalSeats){
         this.totalSeats = totalSeats;
     }
+    
 
     public void bookAuditorium(String eventName, int eventDate, int eventTime, int seatsOccupied){
         this.eventName = eventName;

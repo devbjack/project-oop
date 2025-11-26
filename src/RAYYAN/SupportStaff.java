@@ -13,5 +13,6 @@ public class SupportStaff extends Employee {
         super(employeeName, salary, departmentId);
     }
     
+    
 }
 >>>>>>> main

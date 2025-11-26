@@ -10,6 +10,7 @@ public class Employee {
         this.salary = salary;
         this.departmentId = departmentId;
 =======
+
     public Employee(String employeeName, int salary, int departmentId){
         this.employeeName = employeeName;
         this.salary = salary;

@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+
 public class SchoolManagement {
     private String schoolName, address, mediumOfStudy;
     private int contactNumber;

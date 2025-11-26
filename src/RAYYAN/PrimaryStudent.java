@@ -6,3 +6,4 @@ public class PrimaryStudent{
 >>>>>>> main
     
 }
+

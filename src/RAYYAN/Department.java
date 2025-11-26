@@ -9,6 +9,7 @@ public class Department {
     public Department(){
 
     }
+    
 
     // setter
     public void setDepartmentId(int departmentId){

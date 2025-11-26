@@ -5,6 +5,7 @@ public class Bus {
     private int busId, driverId, busNumber, capacity;
     private ArrayList<Object> areaList = new ArrayList<>();
     
+    
     public Bus(int busId, int driverId, int busNumber, int capacity){
         this.busId = busId;
         this.driverId = driverId;
