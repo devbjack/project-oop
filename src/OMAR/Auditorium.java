@@ -1,11 +1,7 @@
 package OMAR;
 
 public class Auditorium {
-<<<<<<< HEAD
-    private int eventDate, eventTime, seatsOccupied, totalSeats;
-=======
     private int totalSeats, seatsOccupied, eventDate, eventTime;
->>>>>>> b2291a9b6c1e3b370a3f78b1d90e4746342a0ad4
     private String eventName;
     
     public Auditorium(int totalSeats){

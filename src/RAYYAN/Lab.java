@@ -1,4 +1,5 @@
-package OMAR;
+package RAYYAN;
+import OMAR.*;
 import java.util.ArrayList;
 
 import RAYYAN.Student;
