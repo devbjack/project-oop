@@ -8,6 +8,7 @@ public class LabEquipments {
         this.equipmentCount = equipmentCount;
 
 
+        
     }
     
     // setter

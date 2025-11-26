@@ -8,6 +8,7 @@ public class Lab {
 
     }
 
+    
     //setter
     public void setLabId(int labId){
         this.labId = labId;

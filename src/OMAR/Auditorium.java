@@ -7,6 +7,7 @@ public class Auditorium {
     public Auditorium(int totalSeats){
         this.totalSeats = totalSeats;
     }
+    
 
 
     public void bookAuditorium(String eventName, int eventDate, int eventTime, int seatsOccupied){

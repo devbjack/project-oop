@@ -8,6 +8,7 @@ public class Equipments {
     public void setEquipmentId(int equipmentId){
         this.equipmentId = equipmentId;
     }
+    
     public void setCost(int cost){
         this.cost = cost;
     }

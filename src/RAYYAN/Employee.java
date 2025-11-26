@@ -8,7 +8,7 @@ public class Employee {
         this.employeeName = employeeName;
         this.salary = salary;
         this.departmentId = departmentId;
-    }
+
 
     //setter
     public void setEmployeeId(int employeeId){

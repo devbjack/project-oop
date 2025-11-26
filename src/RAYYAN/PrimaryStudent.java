@@ -5,3 +5,4 @@ public class PrimaryStudent extends Student {
         super(studentId, studentName, classId, section, busId);
     }
 }
+
