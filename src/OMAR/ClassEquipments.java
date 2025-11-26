@@ -8,6 +8,7 @@ public class ClassEquipments {
         this.fanCount = fanCount;
         this.lightCount = lightCount;
     }
+    
     // setter
     public void setClassId(int classId){
         this.classId = classId;

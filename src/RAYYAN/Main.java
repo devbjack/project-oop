@@ -10,6 +10,7 @@ public class Main {
             new Classroom(101, "Intro", 501, 0, 101),
             new Classroom(102, "Intermediate", 502,0,  102)
         };
+        
         // Labs
         // Staffs
         Employee[] staffs = {

@@ -8,6 +8,7 @@ public class NoticeBoard {
     public NoticeBoard(){
 
     }
+    
 
     //setter
     public void setNewsList(String s){

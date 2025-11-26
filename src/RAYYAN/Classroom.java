@@ -8,6 +8,7 @@ public class Classroom {
         this.className = className;
 
     }
+    
     public Classroom(int classId, String className, int teacherId, int studentCount, int equipmentId){
         this.classId = classId;
         this.className = className;

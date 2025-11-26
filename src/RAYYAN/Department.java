@@ -11,6 +11,7 @@ public class Department {
         this.departmentName = departmentName;
         this.inchargeName = "";
     }
+    
 
     // setter
     public void setDepartmentId(int departmentId){
