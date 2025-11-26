@@ -9,7 +9,7 @@ public class Employee {
         this.salary = salary;
         this.departmentId = departmentId;
 
-
+    }
     //setter
     public void setEmployeeId(int employeeId){
         this.employeeId = employeeId;

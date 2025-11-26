@@ -3,9 +3,11 @@ import java.util.ArrayList;
 
 public class Bus {
     private int busId, driverId, busNumber, capacity;
-    private ArrayList<Object> areaList = new ArrayList<>();
+    private ArrayList<String> areaList = new ArrayList<>();
     
+
     
+
     public Bus(int busId, int driverId, int busNumber, int capacity){
         this.busId = busId;
         this.driverId = driverId;
@@ -15,11 +17,26 @@ public class Bus {
     
 
     public String busDetails(){
-        return null;
+        String allArea = String.join(", ", areaList);
+        return String.format(
+            "%-1s: %d\n" +  
+            "%-1s: %d\n" +  
+            "%-1s: %d\n" +  
+            "%-1s: %d" +
+            "%-1s: %s",     
+            "Lab ID", busId,
+            "Bus ID: ", driverId,
+            "Driver ID: ", busNumber,
+            "Capacity: ", capacity,
+            "Area List: ", allArea
+        );
     }
+    
     public String showSeats(){
         return null;
     }
+    
+    
     // setter
     public void setBusId(int busId){
         this.busId = busId;
@@ -33,7 +50,7 @@ public class Bus {
     public void setCapacity(int capacity){
         this.capacity = capacity;
     }
-    public void setAreaList(Object o){
+    public void setAreaList(String o){
           areaList.add(o);
     }
 

@@ -1,6 +1,6 @@
 package OMAR;
 
-public class ClassEquipments {
+public class ClassEquipments extends Equipments{
     private int classId, benchCount, fanCount, lightCount;
     
     public ClassEquipments(int benchCount, int fanCount, int lightCount){
@@ -9,6 +9,40 @@ public class ClassEquipments {
         this.lightCount = lightCount;
     }
     
+    
+    
+    @Override
+    public String equipmentDetails(){
+        return String.format(
+            "%-1s: %d\n" +  
+            "%-1s: %d\n" +
+            "%-1d: %s\n" +  
+            "%-1s: %d\n" +  
+            "%-1s: %d\n" +
+            "%-1d: %d\n" 
+            ,     
+            "Equipment ID", this.getEquipmentId(),
+            "Cost: ", this.getCost(),
+            "Class ID: ", classId,
+            "Bench Count: ", benchCount,
+            "Fan Count: ", fanCount,
+            "Light Count: ", lightCount
+
+        );
+    }
+
+    @Override
+    public void purchaseEquipment(int count, int cost) {
+        System.out.println("Purchase Generic Class Equipment updated cost to: " + cost);
+        super.setCost(cost);
+    }
+    
+    @Override
+    public void repair() {
+        System.out.println("Maintenance team sent to Class ID: " + classId);
+        System.out.println("Checking Benches, Fans, and Lights...");
+    }
+
     // setter
     public void setClassId(int classId){
         this.classId = classId;

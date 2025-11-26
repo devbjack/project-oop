@@ -1,9 +1,13 @@
 package OMAR;
 
 public class Auditorium {
+<<<<<<< HEAD
     private int eventDate, eventTime, seatsOccupied, totalSeats;
+=======
+    private int totalSeats, seatsOccupied, eventDate, eventTime;
+>>>>>>> b2291a9b6c1e3b370a3f78b1d90e4746342a0ad4
     private String eventName;
-
+    
     public Auditorium(int totalSeats){
         this.totalSeats = totalSeats;
     }
@@ -16,13 +20,27 @@ public class Auditorium {
         this.eventTime = eventTime;
         this.seatsOccupied = seatsOccupied;
     }
+
     public String eventDetails(){
-        return null;
+        return String.format(
+            "%-1s: %s\n" +  
+            "%-1s: %d\n" +  
+            "%-1s: %d\n" +  
+            "%-1s: %d" +
+            "%-1s: %d",     
+            "Event Name: ", eventName,
+            "Total Seats: ", totalSeats,
+            "Seats Occupied: ", seatsOccupied,
+            "Event Date: ", eventDate,
+            "Event Time: ", eventTime
+        );
     }
+
     public void displaySeats(){
 
     }
     
+
     // setter
     public void setTotalSeats(int totalSeats){
         this.totalSeats = totalSeats;
@@ -39,8 +57,7 @@ public class Auditorium {
     public void setEventTime(int eventTime){
         this.eventTime = eventTime;
     }
-
-
+ 
     // getter
     public int getTotalSeats(){
         return this.totalSeats;
@@ -58,3 +75,4 @@ public class Auditorium {
         return  this.eventTime;
     }
 }
+
