@@ -1,10 +1,11 @@
 package RAYYAN;
 public class Employee {
+    private static int defaultEmployeeId = 300;
     private int employeeId, salary, departmentId;
     private String employeeName;
 
-    public Employee(int employeeId, String employeeName, int salary, int departmentId){
-        this.employeeId = employeeId;
+    public Employee(String employeeName, int salary, int departmentId){
+        this.employeeId = defaultEmployeeId++;
         this.employeeName = employeeName;
         this.salary = salary;
         this.departmentId = departmentId;
@@ -40,7 +41,14 @@ public class Employee {
     
     //methods
     public String employeeDetails(){
-        return String.format("Employee ID:   %d\nName:      %s\nDepartment: %s", employeeId, employeeName, "dummy");
+        return String.format(
+            "%-1s: %d\n" +  
+            "%-1s: %s\n" +  
+            "%-1s: %s\n",     
+            "Employee ID: ", employeeId,
+            "Name: ", employeeName,
+            "Department: ", "dummy"
+        );
     }
     public boolean checkIn(){
         return true;

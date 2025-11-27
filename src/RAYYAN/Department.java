@@ -2,12 +2,13 @@ package RAYYAN;
 import java.util.ArrayList;
 
 public class Department {
+    private static int defaultDepartmentId = 0;
     private int departmentId;
     private String departmentName, inchargeName;
     private ArrayList<Employee> memberList = new ArrayList<>();
 
-    public Department(int departmentId, String departmentName){
-        this.departmentId = departmentId;
+    public Department(String departmentName){
+        this.departmentId = defaultDepartmentId++;
         this.departmentName = departmentName;
         this.inchargeName = "";
     }
@@ -45,7 +46,18 @@ public class Department {
     }
 
     // methods
-    public void departmentDetails(){
-        
+
+    public String departmentDetails(){
+        return String.format(
+            "%-1s: %d\n" +  
+            "%-1s: %s\n" +  
+            "%-1s: %s\n" +  
+            "%-1s: %d\n",     
+            "Default Department ID: ", defaultDepartmentId,
+            "Department ID: ", departmentId,
+            "SepartmentcName: ", departmentName,
+            "Incharge Name: ", inchargeName,
+            "All Meber List: ", memberList.toString()
+        );
     }
 }

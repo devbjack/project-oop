@@ -3,6 +3,12 @@ public class LabEquipments extends Equipments{
     private int equipmentCount;
     private String equipmentName;
     
+    public LabEquipments(int equipmentId, String equipmentName, int equipmentCount){
+        super(equipmentId);
+        this.equipmentName = equipmentName;
+        this.equipmentCount = equipmentCount;
+
+    }
     public LabEquipments(String equipmentName, int equipmentCount){
         this.equipmentName = equipmentName;
         this.equipmentCount = equipmentCount;

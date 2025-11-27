@@ -3,10 +3,20 @@ package OMAR;
 public class ClassEquipments extends Equipments{
     private int classId, benchCount, fanCount, lightCount;
     
-    public ClassEquipments(int benchCount, int fanCount, int lightCount){
+    public ClassEquipments(int equipmentId, int classId, int benchCount, int fanCount, int lightCount){
+        super(equipmentId);
+        this.classId = classId;
         this.benchCount = benchCount;
         this.fanCount = fanCount;
         this.lightCount = lightCount;
+        this.setCost(initCost());
+    }
+    public ClassEquipments( int classId, int benchCount, int fanCount, int lightCount){
+        this.classId = classId;
+        this.benchCount = benchCount;
+        this.fanCount = fanCount;
+        this.lightCount = lightCount;
+        this.setCost(initCost());
     }
     
     
@@ -41,6 +51,10 @@ public class ClassEquipments extends Equipments{
     public void repair() {
         System.out.println("Maintenance team sent to Class ID: " + classId);
         System.out.println("Checking Benches, Fans, and Lights...");
+    }
+
+    private int initCost(){
+        return benchCount*15 + fanCount*20 + lightCount*5;
     }
 
     // setter

@@ -1,9 +1,14 @@
 package OMAR;
 public class Equipments {
+    private static int defaultEquipmentId = 500;
     private int equipmentId, cost;
 
     public Equipments(){
-
+        this.equipmentId = defaultEquipmentId++;
+    }
+    public Equipments(int equipmentId){
+        this.equipmentId = equipmentId;
+        
     }
 
     
@@ -24,6 +29,7 @@ public class Equipments {
     public void repair(){
 
     }
+
 
 
     // setter

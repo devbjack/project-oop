@@ -1,7 +1,9 @@
 package RAYYAN;
 public class Classroom {
+    private static int defaultClassId = 400;
     private int classId, teacherId, studentCount, equipmentId;
     private String className;
+
 
     public Classroom(int studentCount, String className){
         this.studentCount = studentCount;
@@ -9,12 +11,12 @@ public class Classroom {
 
     }
     
-    public Classroom(int classId, String className, int teacherId, int studentCount, int equipmentId){
-        this.classId = classId;
+    public Classroom(String className, int studentCount, int equipmentId){
         this.className = className;
-        this.teacherId = teacherId;
         this.studentCount = studentCount;
         this.equipmentId = equipmentId;
+        this.classId = defaultClassId++;
+        teacherId = 0;
     }
     // setter
     public void setClassId(int classId){
@@ -53,7 +55,19 @@ public class Classroom {
 
     //methods
     public String classDetails(){
-        return String.format("Class ID:     %d\n Name:      %s\nTeacher:        %s\nStudent Count: %d", classId, className, "dummy", studentCount);
+        return String.format(
+            "%-1s: %d\n" +  
+            "%-1s: %s\n" +  
+            "%-1s: %s\n" +  
+            "%-1s: %d\n",     
+            "Class ID: ", classId,
+            "Name: ", className,
+            "Teacher: ", "dummy",
+            "Student Count: ", studentCount
+        );
     }
-    
+    public void addStudentCount(){
+        this.studentCount++;
+    }
+
 }

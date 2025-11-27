@@ -2,25 +2,21 @@ package RAYYAN;
 import OMAR.*;
 import java.util.ArrayList;
 
-import RAYYAN.Student;
 public class Lab {
-    private int labId, inchargeId, equipmentId;
+    private static int defaultlabId = 400;
+    private int labId, inchargeId;
     private String labName;
     private ArrayList<LabEquipments> labEquipmentList;
     private ArrayList<ClassEquipments> classEquipmentList;
+    private int[] equipmentIds;
     boolean occupied = false;
 
     
-    public Lab(String labName, int capacityOfLabEquipment, ArrayList<ClassEquipments> classEquipmentList) throws Exception {
+    public Lab(String labName, int capacityOfLabEquipment, ArrayList<LabEquipments> labEquipments) {
+        this.labId = defaultlabId++;
         this.labName = labName;
-        this.classEquipmentList = classEquipmentList;
         labEquipmentList = new ArrayList<LabEquipments>();
-
-        for(int i = 0; i < capacityOfLabEquipment; i++){
-            String equipmentName = "akf";
-            int equipmentCount = 1;
-            labEquipmentList.add(new LabEquipments(equipmentName, equipmentCount));
-        }
+        this.labEquipmentList = labEquipments;
     }
 
     public String labDetails(){
@@ -73,8 +69,8 @@ public class Lab {
     public void setInchargeId(int inchargeId){
         this.inchargeId = inchargeId;
     }
-    public void setEquipmentId(int equipmentId){
-        this.equipmentId = equipmentId;
+    public void setEquipmentIds(int[] equipmentIds){
+        this.equipmentIds = equipmentIds;
     }
     public void setLabName(String labName){
         this.labName = labName;
@@ -89,8 +85,8 @@ public class Lab {
     public int getInchargeId(){
         return inchargeId;
     }
-    public int getEquipmentId(){
-        return equipmentId;
+    public int[] getEquipmentIds(){
+        return equipmentIds;
     }
     public String getLabName(){
         return labName;

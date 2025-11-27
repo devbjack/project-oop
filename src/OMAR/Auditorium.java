@@ -3,14 +3,18 @@ package OMAR;
 public class Auditorium {
     private int totalSeats, seatsOccupied, eventDate, eventTime;
     private String eventName;
+    private boolean isOccupied;
     
     public Auditorium(int totalSeats){
         this.totalSeats = totalSeats;
+        this.eventName = null;
     }
+    
     
 
 
     public void bookAuditorium(String eventName, int eventDate, int eventTime, int seatsOccupied){
+        isOccupied = true;
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.eventTime = eventTime;
@@ -18,12 +22,16 @@ public class Auditorium {
     }
 
     public String eventDetails(){
+        if(eventName==null){
+            System.out.println("Auditorium has no event");
+            return "\n";
+        }
         return String.format(
             "%-1s: %s\n" +  
             "%-1s: %d\n" +  
             "%-1s: %d\n" +  
-            "%-1s: %d" +
-            "%-1s: %d",     
+            "%-1s: %d\n" +
+            "%-1s: %d\n",     
             "Event Name: ", eventName,
             "Total Seats: ", totalSeats,
             "Seats Occupied: ", seatsOccupied,
@@ -33,7 +41,8 @@ public class Auditorium {
     }
 
     public void displaySeats(){
-
+        System.out.println("Total Seats: " + totalSeats);
+        System.out.println("Seats Occcupied: " + seatsOccupied);
     }
     
 
@@ -69,6 +78,9 @@ public class Auditorium {
     }
     public int getEventTime(){
         return  this.eventTime;
+    }
+    public boolean getIsOccupied(){
+        return isOccupied;
     }
 }
 

@@ -9,7 +9,6 @@ public class Playground {
     }
 
     
-    
     boolean IsOccupied(int classId){
         if(classId != 0) return true;
         return false;

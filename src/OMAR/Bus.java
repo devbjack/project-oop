@@ -2,17 +2,18 @@ package OMAR;
 import java.util.ArrayList;
 
 public class Bus {
-    private int busId, driverId, busNumber, capacity;
+    private static int defaultBusID = 100;
+    private int busId, driverId, busNumber, capacity, occupied;
     private ArrayList<String> areaList = new ArrayList<>();
     
 
     
-
-    public Bus(int busId, int driverId, int busNumber, int capacity){
-        this.busId = busId;
+    public Bus(int driverId, int busNumber, int capacity){
+        this.busId = defaultBusID++;
         this.driverId = driverId;
         this.busNumber = busNumber;
         this.capacity = capacity;
+        this.occupied = 0;
     }
     
 
@@ -22,18 +23,22 @@ public class Bus {
             "%-1s: %d\n" +  
             "%-1s: %d\n" +  
             "%-1s: %d\n" +  
-            "%-1s: %d" +
-            "%-1s: %s",     
+            "%-1s: %d\n" +
+            "%-1s: %s\n",     
             "Lab ID", busId,
-            "Bus ID: ", driverId,
-            "Driver ID: ", busNumber,
-            "Capacity: ", capacity,
-            "Area List: ", allArea
+            "Bus ID ", driverId,
+            "Driver ID ", busNumber,
+            "Capacity ", capacity,
+            "Area List ", allArea
         );
     }
     
-    public String showSeats(){
-        return null;
+    public void showSeats(){
+        System.out.println("Capacity: " + capacity);
+        System.out.println("Available: " + (capacity-occupied));
+    }
+    public void incOccupied(){
+        occupied++;
     }
     
     
@@ -53,6 +58,9 @@ public class Bus {
     public void setAreaList(String o){
           areaList.add(o);
     }
+    public void setOccupied(int occupied){
+        this.occupied = occupied;
+    }
 
     // getter
     public int getBusId(){
@@ -70,4 +78,9 @@ public class Bus {
     public Object getAreaList(){
         return this.areaList;
     }
+    public int getOccupied(){
+        return occupied;
+    }
+
+
 }
